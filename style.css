@@ -1,6 +1,7 @@
 :root {
     --lavender: #8981D0;
     --white: #ffffff;
+    --inner-width: 85%;
 }
 
 body {
@@ -14,15 +15,34 @@ body {
     height: 150vh;
     /* Or however much scroll space you need */
     background: #fff;
+    z-index: 10;
+    position: relative;
 }
 
 .pin-section {
+    width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background: var(--lavender);
+    background: linear-gradient(300deg, #8980d0, #d95db9);
+    background-size: 180% 180%;
+    animation: gradient-animation 10s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .image-container {
@@ -60,19 +80,11 @@ body {
     }
 }
 
-/* .image-container img {
-    width: 600px;
-    height: auto;
-    transform-origin: center;
-    transform-style: preserve-3d;
-    transform: rotate(-90deg);
-    animation-iteration-count: 10;
-} */
-
 .image-container canvas {
     z-index: 10;
     transform: rotate(-90deg);
     padding: 5% 0;
+    max-height: 100vh;
 }
 
 @keyframes pulse {
@@ -114,7 +126,7 @@ body {
     height: 100vh;
     background: #ffffff;
     overflow: hidden;
-    z-index: 2;
+    z-index: 10;
     /* Make sure it's above pin-section */
     pointer-events: none;
     /* So scrolling still works through */
@@ -137,7 +149,7 @@ body {
     z-index: 2;
     padding: 20vh 5vw;
     max-width: 800px;
-    color: #fff;
-    font-size: 1.5rem;
+    color: #000;
+    font-size: 2.5em;
     pointer-events: auto;
 }
