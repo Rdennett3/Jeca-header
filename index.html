@@ -20,8 +20,15 @@
         </div>
     </div>
 
-    <div class="spacer">
+    <div class="parallax-section">
+        <div class="parallax-bg"></div>
+        <div class="parallax-content">
+            <h2>Our Mission</h2>
+            <p>JECA bars fuel your next climb, ride, or trail. Built for endurance and powered by nature.</p>
+        </div>
     </div>
+
+    <div class="spacer"></div>
 
     <script>
         const container = document.querySelector(".image-container");
@@ -69,7 +76,7 @@
 
         // Rotate the box on X axis using Three.js-compatible properties
         timeline.to(box.rotation, {
-            x: "+=" + (2 * Math.PI * 2), // 720 degrees = 2 full turns
+            x: "+=" + (-2 * Math.PI * 2), // 720 degrees = 2 full turns
             ease: "none",
             onUpdate: render
         });
@@ -91,6 +98,18 @@
             camera.aspect = width / height;
             camera.updateProjectionMatrix();
         });
+
+        // Slide in the parallax section after pin ends
+        gsap.to(".parallax-section", {
+            scrollTrigger: {
+                trigger: ".pin-section",
+                start: "bottom bottom",
+                end: "+=100%",
+                scrub: true
+            },
+            y: "-125vh"
+        });
+
     </script>
 </body>
 

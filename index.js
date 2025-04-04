@@ -1,13 +1,9 @@
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.to(".image-container img", {
-    rotationY: 360,
+gsap.to(".parallax-bg", {
     scrollTrigger: {
-        trigger: ".pin-section",
-        start: "top top",
-        end: "+=100%",
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1
-    }
+        trigger: ".parallax-section",
+        start: "top bottom", // starts when section hits bottom of viewport
+        end: "bottom top",
+        scrub: true
+    },
+    y: "-20%" // slow parallax scroll upward
 });

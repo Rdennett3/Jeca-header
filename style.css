@@ -11,8 +11,9 @@ body {
 }
 
 .spacer {
-    height: 100vh;
-    background: red;
+    height: 150vh;
+    /* Or however much scroll space you need */
+    background: #fff;
 }
 
 .pin-section {
@@ -94,4 +95,49 @@ body {
     100% {
         opacity: 1
     }
+}
+
+/* PARALLAX SECTION BELOW HEADER */
+
+.pin-section {
+    position: relative;
+    z-index: 1;
+}
+
+.parallax-section {
+    position: fixed;
+    /* This is key! */
+    top: 100vh;
+    /* Start just below the viewport */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    overflow: hidden;
+    z-index: 2;
+    /* Make sure it's above pin-section */
+    pointer-events: none;
+    /* So scrolling still works through */
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    background-image: linear-gradient(to bottom (var(--white) var(--lavender)));
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.parallax-content {
+    position: relative;
+    z-index: 2;
+    padding: 20vh 5vw;
+    max-width: 800px;
+    color: #fff;
+    font-size: 1.5rem;
+    pointer-events: auto;
 }
