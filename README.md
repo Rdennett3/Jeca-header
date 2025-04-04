@@ -1,0 +1,1 @@
+This is just a proof of concept usin THREE.js and GSAP to pin a 3d rectangular object while spinning on its X axis, then fade out once the spin animation is complete. Meant to possibly be used in the header of a new Shopify project.
